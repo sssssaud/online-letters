@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="color-scheme" content="only light">
+<meta name="darkreader-lock">
 <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The much less serious page</title>
@@ -166,10 +167,19 @@
   @media (prefers-reduced-motion:reduce){
     *{animation:none !important;transition:none !important}
   }
-  .music{margin:34px auto 6px;max-width:430px;text-align:center}
-  .music p{font-family:'Caveat',cursive;font-size:1.25rem;color:var(--ink-faint);margin:0 0 10px}
-  .music audio{width:100%;height:54px;border-radius:99px;background:#fffdfb;border:1px solid var(--line)}
-  .music audio::-webkit-media-controls-enclosure{background:#fffdfb;border-radius:99px}
+  .bgm{
+    position:fixed;right:16px;bottom:16px;z-index:60;
+    width:46px;height:46px;border-radius:50%;padding:0;
+    display:grid;place-items:center;cursor:pointer;
+    background:#fffdfb;border:1px solid var(--line);
+    color:var(--rose);font-size:1.2rem;line-height:1;
+    box-shadow:0 4px 14px rgba(58,49,44,.14);
+    transition:transform .15s ease;
+  }
+  .bgm:hover{transform:scale(1.06)}
+  .bgm:focus-visible{outline:3px solid var(--rose);outline-offset:2px}
+  .bgm[data-on="0"]{color:var(--ink-faint);text-decoration:line-through;opacity:.8}
+  @media (prefers-reduced-motion:reduce){.bgm{transition:none}}
 </style>
 </head>
 <body>
@@ -180,10 +190,6 @@
     <img src="assets/laugh-hearts.webp" alt="A yellow face laughing so hard it is crying hearts.">
     <h1>Okay. Serious part's&nbsp;over.</h1>
     <p class="sub">You survived it. Here's the stupid half.</p>
-    <div class="music">
-      <p>music's still here, if you want it</p>
-      <audio controls loop preload="none" src="assets/letter.mp3"></audio>
-    </div>
   </header>
 
   <h2 class="sec">first — pick whichever one is true right now</h2>
@@ -311,21 +317,55 @@
   <p class="closing">still no reply needed.<br>still meant every word of it.</p>
 
 </div>
+<audio id="bgm" loop preload="auto" src="assets/letter.mp3"></audio>
+<button id="bgm-btn" class="bgm" type="button" data-on="0" aria-label="Play music" title="Play music">♪</button>
 <script>
-// ponytail: carries the track across the page-1 -> page-2 jump. JS or storage dead = player still works, just restarts.
+// ponytail: browsers refuse unmuted autoplay with no user gesture. play() is tried anyway (it works on
+// repeat visits once Chrome's media-engagement score is up), and the first tap/scroll/key is the real
+// trigger. The floating button is the stop control WCAG 1.4.2 requires for auto-playing audio.
 (function(){
-  var a=document.querySelector('.music audio'); if(!a) return;
-  var K='letter-audio';
-  function save(){try{sessionStorage.setItem(K,JSON.stringify({t:a.currentTime,p:!a.paused}));}catch(e){}}
-  a.addEventListener('pause',save);
-  window.addEventListener('pagehide',save);
+  var a=document.getElementById('bgm'), b=document.getElementById('bgm-btn');
+  if(!a||!b) return;
+  var K='letter-audio', userOff=false;
+
+  function sync(){
+    var on=!a.paused;
+    b.setAttribute('data-on', on?'1':'0');
+    b.setAttribute('aria-label', on?'Pause music':'Play music');
+    b.title = on?'Pause music':'Play music';
+  }
+  function save(){try{sessionStorage.setItem(K,JSON.stringify({t:a.currentTime,off:userOff}));}catch(e){}}
+  function start(){ if(userOff) return; var p=a.play(); if(p&&p.catch) p.catch(function(){}); }
+
+  // pick up where the other page left off
   try{
     var s=JSON.parse(sessionStorage.getItem(K)||'null');
-    if(s&&s.p){
-      a.addEventListener('loadedmetadata',function(){a.currentTime=s.t||0;},{once:true});
-      a.play().catch(function(){});   // blocked autoplay is fine, she just taps play
+    if(s){
+      if(s.off) userOff=true;
+      if(s.t) a.addEventListener('loadedmetadata',function(){try{a.currentTime=s.t;}catch(e){}},{once:true});
     }
   }catch(e){}
+
+  a.addEventListener('play',sync);
+  a.addEventListener('pause',sync);
+  window.addEventListener('pagehide',save);
+
+  b.addEventListener('click',function(e){
+    e.stopPropagation();
+    if(a.paused){userOff=false;start();} else {userOff=true;a.pause();}
+    sync(); save();
+  });
+
+  var evts=['pointerdown','touchstart','keydown','scroll','wheel'];
+  function kick(e){
+    if(e.target&&e.target.nodeType===1&&b.contains(e.target)) return;
+    if(a.paused&&!userOff) start();
+    if(!a.paused) evts.forEach(function(n){window.removeEventListener(n,kick,{capture:true});});
+  }
+  evts.forEach(function(n){window.addEventListener(n,kick,{capture:true,passive:true});});
+
+  start();
+  sync();
 })();
 </script>
 </body>
