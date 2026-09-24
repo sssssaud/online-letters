@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="only light">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The much less serious page</title>
+<meta name="description" content="Page two.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  html{color-scheme:only light}
+  :root{
+    --paper:#fff6f8;
+    --card:#fffdfd;
+    --ink:#3a312c;
+    --ink-soft:#6f6159;
+    --ink-faint:#a4928c;
+    --rose:#c2717d;
+    --rose-deep:#a85a68;
+    --rose-soft:#fbdfe4;
+    --line:#f4dde2;
+    --mint:#e7f0e8;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 10% 4%, #ffe6ee 0%, transparent 40%),
+      radial-gradient(circle at 92% 14%, #fff1dd 0%, transparent 38%),
+      radial-gradient(circle at 20% 70%, #f3e9ff 0%, transparent 36%),
+      radial-gradient(circle at 85% 92%, #ffe6ee 0%, transparent 40%);
+    color:var(--ink);
+    font-family:'Lora',Georgia,serif;
+    font-size:17px;line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px 80px}
+
+  /* ---------- header ---------- */
+  .top{text-align:center;padding:56px 0 0}
+  .kicker{font-family:'Caveat',cursive;font-size:1.35rem;color:var(--rose);margin:0 0 14px}
+  .top img{
+    width:150px;height:auto;display:block;margin:0 auto 18px;
+    filter:drop-shadow(0 12px 18px rgba(170,110,60,.25));
+    animation:bob 4.5s ease-in-out infinite;
+  }
+  h1{
+    font-family:'Fraunces',Georgia,serif;font-weight:600;
+    font-size:clamp(1.9rem,7.5vw,2.6rem);line-height:1.2;
+    margin:0 0 12px;letter-spacing:-.02em;
+  }
+  .top .sub{margin:0;color:var(--ink-soft);font-size:1.02rem}
+
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(2deg)}}
+
+  /* ---------- section headings ---------- */
+  h2.sec{
+    font-family:'Caveat',cursive;font-weight:700;
+    font-size:1.75rem;color:var(--rose-deep);
+    text-align:center;margin:58px 0 6px;line-height:1.3;
+  }
+  .sec-note{text-align:center;color:var(--ink-faint);font-size:.92rem;margin:0 0 22px}
+
+  /* ---------- the two mood buttons ---------- */
+  .mood{display:grid;gap:14px}
+  .mood details{
+    background:var(--card);border:1.5px solid var(--line);
+    border-radius:20px;overflow:hidden;
+    box-shadow:0 12px 26px -20px rgba(150,90,100,.6);
+  }
+  .mood summary{
+    list-style:none;cursor:pointer;
+    padding:20px 22px;font-size:1.06rem;font-weight:500;
+    display:flex;align-items:center;gap:12px;
+    transition:background .2s ease;
+  }
+  .mood summary:hover{background:#fff8fa}
+  .mood details[open] summary{background:var(--rose-soft)}
+
+  /* ---------- open-when cards ---------- */
+  .cards{display:grid;gap:14px}
+  .cards details{
+    background:var(--card);border:1.5px solid var(--line);
+    border-radius:18px;overflow:hidden;
+    box-shadow:0 10px 24px -20px rgba(150,90,100,.55);
+    transition:transform .22s ease;
+  }
+  .cards details:hover{transform:translateY(-2px)}
+  .cards summary{
+    list-style:none;cursor:pointer;padding:17px 20px;
+    font-family:'Caveat',cursive;font-size:1.4rem;line-height:1.35;
+    color:var(--rose-deep);display:flex;align-items:center;gap:11px;
+  }
+  .cards details[open] summary{border-bottom:1px solid var(--line)}
+
+  summary::-webkit-details-marker{display:none}
+  summary::marker{content:''}
+  summary .em{font-family:'Lora',serif;font-size:1.25rem;flex:none;line-height:1}
+  summary:focus-visible{outline:3px solid var(--rose);outline-offset:-3px;border-radius:14px}
+
+  .body{padding:4px 20px 20px;animation:fadein .45s ease both}
+  .body p{margin:.85em 0 0;color:var(--ink-soft)}
+  .body p:first-child{margin-top:.6em}
+  .body .whisper{font-family:'Caveat',cursive;font-size:1.2rem;color:var(--ink-faint)}
+  .body img{
+    width:88px;height:auto;display:block;margin:16px 0 0 auto;
+    filter:drop-shadow(0 8px 14px rgba(140,95,85,.22));
+  }
+  @keyframes fadein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+  /* ---------- the finale ---------- */
+  .finale{
+    margin:64px 0 0;padding:44px 26px 36px;text-align:center;
+    background:linear-gradient(170deg,#fff4f7 0%, #fff9f4 100%);
+    border:1.5px solid var(--line);border-radius:28px;
+    box-shadow:0 20px 44px -30px rgba(150,90,100,.7);
+    position:relative;
+  }
+  .finale > img{
+    width:120px;height:auto;display:block;margin:0 auto 20px;
+    filter:drop-shadow(0 12px 18px rgba(150,90,100,.28));
+    animation:bob 5.2s ease-in-out infinite;
+  }
+  .finale .anyway{
+    font-family:'Caveat',cursive;font-size:2rem;
+    color:var(--rose);margin:0 0 14px;line-height:1;
+  }
+  .finale .line{
+    font-family:'Fraunces',Georgia,serif;
+    font-size:clamp(1.18rem,5vw,1.45rem);
+    line-height:1.6;margin:0;letter-spacing:-.01em;
+  }
+  .finale .line b{font-weight:600;color:var(--rose-deep)}
+  .finale .ps{
+    margin:26px 0 0;font-family:'Caveat',cursive;
+    font-size:1.2rem;color:var(--ink-faint);line-height:1.45;
+  }
+
+  /* ---------- footer ---------- */
+  .back{
+    display:flex;align-items:center;gap:13px;
+    margin:38px 0 0;padding:16px 20px;
+    background:var(--card);border:1.5px solid var(--line);
+    border-radius:999px;text-decoration:none;color:var(--ink);
+    box-shadow:0 10px 24px -20px rgba(150,90,100,.6);
+    transition:transform .22s ease;
+  }
+  .back:hover,.back:focus-visible{transform:translateY(-2px)}
+  .back img{width:50px;height:50px;object-fit:contain;flex:none}
+  .back b{display:block;font-weight:500;font-size:.98rem}
+  .back small{display:block;color:var(--ink-faint);font-size:.86rem}
+  .closing{
+    text-align:center;margin:30px 0 0;
+    font-family:'Caveat',cursive;font-size:1.3rem;color:var(--rose);
+  }
+
+  @media (min-width:760px){
+    .cards{grid-template-columns:1fr 1fr}
+    .mood{grid-template-columns:1fr 1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important}
+  }
+  .music{margin:34px auto 6px;max-width:430px;text-align:center}
+  .music p{font-family:'Caveat',cursive;font-size:1.25rem;color:var(--ink-faint);margin:0 0 10px}
+  .music audio{width:100%;height:54px;border-radius:99px;background:#fffdfb;border:1px solid var(--line)}
+  .music audio::-webkit-media-controls-enclosure{background:#fffdfb;border-radius:99px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <p class="kicker">page two of two</p>
+    <img src="assets/laugh-hearts.webp" alt="A yellow face laughing so hard it is crying hearts.">
+    <h1>Okay. Serious part's&nbsp;over.</h1>
+    <p class="sub">You survived it. Here's the stupid half.</p>
+    <div class="music">
+      <p>music's still here, if you want it</p>
+      <audio controls loop preload="none" src="assets/letter.mp3"></audio>
+    </div>
+  </header>
+
+  <h2 class="sec">first — pick whichever one is true right now</h2>
+  <p class="sec-note">there is no wrong one. that's sort of the entire point.</p>
+
+  <div class="mood">
+    <details>
+      <summary><span class="em" aria-hidden="true">😶</span> I don't feel like talking today</summary>
+      <div class="body">
+        <p>Okay. Noted. Nothing needed.</p>
+        <p>No follow-up question. No <em>"you okay??"</em> sent three times. No weird energy about it tomorrow.</p>
+        <p>I'll be over here doing my own thing, badly. Come back whenever — or don't, today. Both are completely fine, and neither one costs you anything.</p>
+        <img src="assets/cat-content.webp" alt="">
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="em" aria-hidden="true">👀</span> I do feel like talking</summary>
+      <div class="body">
+        <p>Oh. Okay. Cool. Cool cool cool.</p>
+        <p class="whisper">(closes forty tabs, sits up straight, pretends to have been doing something productive)</p>
+        <p>Go ahead. I have nowhere to be and nothing better to do — which is genuinely a bit sad for me and extremely convenient for you.</p>
+        <img src="assets/cat-yay.webp" alt="">
+      </div>
+    </details>
+  </div>
+
+  <h2 class="sec">and then, open whichever one fits</h2>
+  <p class="sec-note">they're not going anywhere. they'll still be here at 3am.</p>
+
+  <div class="cards">
+
+    <details>
+      <summary><span class="em" aria-hidden="true">🫠</span> open when you think you're too much</summary>
+      <div class="body">
+        <p>You're not too much. I just have a very small brain and you use the entire thing.</p>
+        <p>That's a me problem. I'm handling it. Badly — but I'm handling it.</p>
+        <img src="assets/cat-facepalm.webp" alt="">
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="em" aria-hidden="true">😹</span> open when you want to laugh at me</summary>
+      <div class="body">
+        <p>I rewrote the first line of the other page fourteen times. <em>Fourteen.</em> There is a folder.</p>
+        <p>One of the early drafts used the word "moonlight." Unprompted. I've deleted it, but I don't think I'll ever really be free of it.</p>
+        <img src="assets/cat-yawn.webp" alt="">
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="em" aria-hidden="true">🌙</span> open at 2am when you can't sleep</summary>
+      <div class="body">
+        <p>Text me.</p>
+        <p>Worst case I'm asleep and you get a reply at 7am that just says <em>"WHAT. HELLO."</em> Best case I'm also awake, being obsessive about some project that refuses to work.</p>
+        <p>Either way, you're not bothering anybody.</p>
+        <img src="assets/cat-think.webp" alt="">
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="em" aria-hidden="true">😤</span> open when you're annoyed at me</summary>
+      <div class="body">
+        <p>Completely valid. Go ahead.</p>
+        <p>I'll wait — waiting is my only real athletic ability. And you don't have to be polite about it either. I'd genuinely rather know than be left to guess.</p>
+        <img src="assets/cat-arms.webp" alt="">
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="em" aria-hidden="true">🌧️</span> open when today was just bad</summary>
+      <div class="body">
+        <p>You don't have to explain it. You can just send a full stop.</p>
+        <p>I'll take a full stop. I'll send one back. We can sit there like two idiots exchanging punctuation until you feel like using actual words again.</p>
+        <img src="assets/cat-pleading.webp" alt="">
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="em" aria-hidden="true">💭</span> open when you want to know why I'm doing all this</summary>
+      <div class="body">
+        <p>Because somewhere in everything you told me, you mentioned that you'd gotten used to keeping things to yourself.</p>
+        <p>And I thought: I would really, really like to be inconvenient to that habit.</p>
+        <img src="assets/cat-hug.webp" alt="">
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="em" aria-hidden="true">🤍</span> open when you need to hear something true</summary>
+      <div class="body">
+        <p>You explained yourself to me when going quiet would have been so much easier.</p>
+        <p>That is not the behaviour of someone nobody can handle. That's just bravery with terrible PR.</p>
+        <img src="assets/cat-shypaws.webp" alt="">
+      </div>
+    </details>
+
+    <details>
+      <summary><span class="em" aria-hidden="true">🙈</span> open if you're only here to see how bad this gets</summary>
+      <div class="body">
+        <p>Honestly? The most likely reason, and I respect it.</p>
+        <p>Screenshot whatever you want. Send it to whoever you want. I've made my peace with it.</p>
+        <img src="assets/cat-smug.webp" alt="">
+      </div>
+    </details>
+
+  </div>
+
+  <section class="finale">
+    <img src="assets/cat-hearts.webp" alt="A cat with its paws together, surrounded by little pink hearts.">
+    <p class="anyway">anyway —</p>
+    <p class="line">If you ever catch yourself smiling at your phone for no reason,<br>
+      <b>that's not a glitch.</b><br>
+      That's just me, somewhere, being extremely normal about you.</p>
+    <p class="ps">(you're allowed to screenshot this and make fun of me.<br>that's fine. that's included in the price.)</p>
+  </section>
+
+  <a class="back" href="index.html">
+    <img src="assets/cat-wave.webp" alt="">
+    <span>
+      <b>&larr; back to the serious one</b>
+      <small>if you want to read it again. or don't.</small>
+    </span>
+  </a>
+
+  <p class="closing">still no reply needed.<br>still meant every word of it.</p>
+
+</div>
+<script>
+// ponytail: carries the track across the page-1 -> page-2 jump. JS or storage dead = player still works, just restarts.
+(function(){
+  var a=document.querySelector('.music audio'); if(!a) return;
+  var K='letter-audio';
+  function save(){try{sessionStorage.setItem(K,JSON.stringify({t:a.currentTime,p:!a.paused}));}catch(e){}}
+  a.addEventListener('pause',save);
+  window.addEventListener('pagehide',save);
+  try{
+    var s=JSON.parse(sessionStorage.getItem(K)||'null');
+    if(s&&s.p){
+      a.addEventListener('loadedmetadata',function(){a.currentTime=s.t||0;},{once:true});
+      a.play().catch(function(){});   // blocked autoplay is fine, she just taps play
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

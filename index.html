@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="only light">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Something I wanted to say properly</title>
+<meta name="description" content="A letter.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  html{color-scheme:only light}
+  :root{
+    --paper:#fdf9f4;
+    --paper-deep:#f6ece1;
+    --ink:#3a312c;
+    --ink-soft:#6f6159;
+    --ink-faint:#9b8b81;
+    --rose:#c2717d;
+    --rose-soft:#f2d8dc;
+    --blush:#fef2f6;
+    --line:#e6d8ca;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% 8%, #fdeef1 0%, transparent 42%),
+      radial-gradient(circle at 88% 22%, #fbf1e4 0%, transparent 40%),
+      radial-gradient(circle at 50% 96%, #fdeef1 0%, transparent 45%);
+    color:var(--ink);
+    font-family:'Lora',Georgia,'Times New Roman',serif;
+    font-size:17px;
+    line-height:1.95;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:660px;margin:0 auto;padding:0 22px 90px}
+
+  /* ---------- opening ---------- */
+  .top{text-align:center;padding:64px 0 8px}
+  .kicker{
+    font-family:'Caveat',cursive;
+    font-size:1.4rem;color:var(--rose);
+    letter-spacing:.02em;margin:0 0 20px;
+  }
+  .hero{
+    width:190px;height:190px;border-radius:50%;
+    object-fit:cover;object-position:50% 42%;
+    display:block;margin:0 auto 26px;
+    background:var(--blush);
+    box-shadow:0 18px 40px -18px rgba(150,95,105,.45);
+  }
+  h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:400;font-size:clamp(1.9rem,7vw,2.7rem);
+    line-height:1.25;margin:0 0 6px;letter-spacing:-.015em;
+  }
+  h1 em{font-style:italic;color:var(--rose)}
+  .dateline{
+    font-family:'Caveat',cursive;font-size:1.25rem;
+    color:var(--ink-faint);margin:10px 0 0;
+  }
+
+  /* ---------- permission note ---------- */
+  .permission{
+    margin:44px 0 10px;padding:26px 26px 22px;
+    background:#fffdfb;
+    border:1px solid var(--line);
+    border-left:3px solid var(--rose-soft);
+    border-radius:4px;
+    box-shadow:0 10px 30px -22px rgba(90,60,50,.4);
+  }
+  .permission p{margin:0 0 .7em;font-size:1.02rem;color:var(--ink-soft)}
+  .permission p:last-child{margin-bottom:0}
+  .permission strong{color:var(--ink);font-weight:500}
+
+  /* ---------- beats ---------- */
+  .beat{margin:58px 0 0;position:relative}
+  .beat h2{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:600;font-size:clamp(1.25rem,4.6vw,1.5rem);
+    line-height:1.4;margin:0 0 16px;letter-spacing:-.01em;
+  }
+  .beat p{margin:0 0 1.15em}
+  .beat p:last-child{margin-bottom:0}
+  .beat em{color:var(--rose);font-style:italic}
+
+  /* the one line that should land hardest */
+  .landing{
+    font-family:'Fraunces',Georgia,serif;
+    font-size:clamp(1.15rem,4.4vw,1.35rem);
+    line-height:1.55;color:var(--ink);
+    margin:26px 0 !important;padding:20px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    text-align:center;
+  }
+
+  hr.rule{
+    border:0;height:1px;background:var(--line);
+    margin:56px auto 0;max-width:120px;
+  }
+
+  /* ---------- stickers ---------- */
+  .sticker{
+    display:block;margin:34px auto 0;
+    width:120px;height:auto;
+    filter:drop-shadow(0 10px 16px rgba(120,85,75,.22));
+  }
+  .sticker.tiny{width:92px}
+  .sticker.line-art{filter:none;opacity:.9}
+
+  /* ---------- signature ---------- */
+  .sign{
+    margin-top:46px;text-align:right;
+    font-family:'Caveat',cursive;
+    font-size:2rem;color:var(--rose);line-height:1.2;
+  }
+  .sign span{display:block;font-size:.95rem;font-family:'Lora',serif;color:var(--ink-faint);margin-bottom:4px}
+
+  /* ---------- next page ---------- */
+  .next{
+    display:flex;align-items:center;gap:16px;
+    margin:66px 0 0;padding:20px 22px;
+    background:#fffdfb;border:1px solid var(--line);
+    border-radius:999px;text-decoration:none;color:var(--ink);
+    box-shadow:0 12px 30px -20px rgba(90,60,50,.5);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .next:hover,.next:focus-visible{
+    transform:translateY(-3px);
+    box-shadow:0 18px 34px -20px rgba(90,60,50,.55);
+  }
+  .next img{width:56px;height:56px;object-fit:contain;flex:none}
+  .next b{display:block;font-weight:500;font-size:1rem}
+  .next small{display:block;color:var(--ink-faint);font-size:.88rem;line-height:1.5}
+  .next .arrow{margin-left:auto;color:var(--rose);font-size:1.3rem;flex:none}
+
+  /* ---------- reveal ----------
+     Pure CSS scroll-driven animation. Browsers without support simply show
+     the content, so the letter can never end up invisible. No JS involved. */
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @supports (animation-timeline:view()){
+    @media (prefers-reduced-motion:no-preference){
+      .beat,.permission,.next{
+        animation:rise linear both;
+        animation-timeline:view();
+        animation-range:entry 0% entry 58%;
+      }
+    }
+  }
+  @media (prefers-reduced-motion:reduce){ .next{transition:none} }
+
+  /* ---------- desktop: stickers drift into the margin ---------- */
+  @media (min-width:1040px){
+    .wrap{padding-bottom:110px}
+    .beat > .sticker{
+      position:absolute;margin:0;width:128px;
+    }
+    .beat > .sticker.right{right:-186px;top:6px;transform:rotate(5deg)}
+    .beat > .sticker.left{left:-186px;top:6px;transform:rotate(-6deg)}
+  }
+  .music{margin:34px auto 6px;max-width:430px;text-align:center}
+  .music p{font-family:'Caveat',cursive;font-size:1.25rem;color:var(--ink-faint);margin:0 0 10px}
+  .music audio{width:100%;height:54px;border-radius:99px;background:#fffdfb;border:1px solid var(--line)}
+  .music audio::-webkit-media-controls-enclosure{background:#fffdfb;border-radius:99px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <p class="kicker">something I wanted to say properly</p>
+    <img class="hero" src="assets/hero-rose.webp" alt="A small round character holding a single red rose, blushing.">
+    <h1>I read what you sent me.<br><em>Then I read it again.</em></h1>
+    <p class="dateline">no reply needed · take your time</p>
+    <div class="music">
+      <p>if you want something playing while you read</p>
+      <audio controls loop preload="none" src="assets/letter.mp3"></audio>
+    </div>
+  </header>
+
+  <div class="permission">
+    <p><strong>You don't have to read all of this.</strong></p>
+    <p>You don't have to reply to it either. If you get halfway down and close the tab, nothing changes and nothing is held against you.</p>
+    <p>I mean that literally. This isn't a test, and there's no correct response at the bottom.</p>
+  </div>
+
+  <section class="beat">
+    <img class="sticker tiny line-art left" src="assets/shy-guy.webp" alt="">
+    <h2>I've been thinking about what you told me.</h2>
+    <p>Not the polite kind of thinking. The kind where you read something three times because you really don't want to get it wrong.</p>
+    <p>You said that when something doesn't feel good to you, you don't explain it — you go quiet. And not only with the one person involved. With everyone. You said you just go far from it.</p>
+    <p>I understand that now. I didn't before, and I'm glad you told me instead of letting me keep guessing.</p>
+  </section>
+
+  <section class="beat">
+    <h2>First — about what I said to you.</h2>
+    <p>I told you I was worried I was coming across as creepy. Which means I took my own anxiety and handed it to you to carry, at the exact moment <em>you</em> were the one feeling uncomfortable. That was backwards, and I'm sorry.</p>
+    <p>And you answered anyway. You explained yourself instead of disappearing — which, going by everything you've since told me about how you work, probably cost you something.</p>
+    <p>I noticed that. Thank you.</p>
+    <img class="sticker right" src="assets/cat-peek.webp" alt="A black and white cat peeking shyly around the edge of a wall.">
+  </section>
+
+  <hr class="rule">
+
+  <section class="beat">
+    <h2>You said you're annoying, and that nobody can handle you.</h2>
+    <p>I don't think that's what actually happened to you.</p>
+    <p>I think you spent a long time talking to someone who took it lightly. And when you get taken lightly enough times, you stop blaming the person who wasn't listening. You start doing quiet math instead: <em>if I say less, I'll be easier to keep.</em></p>
+    <p>That isn't being annoying. That's being tired.</p>
+    <p class="landing">Annoying and unheard feel identical from the inside.<br>They are not the same thing.</p>
+    <img class="sticker left" src="assets/cat-pout.webp" alt="A small round sad-looking cat.">
+  </section>
+
+  <section class="beat">
+    <h2>You said you were with someone, and still felt alone.</h2>
+    <p>That's the line I keep coming back to.</p>
+    <p>Because it means the problem was never that nobody was nearby. Somebody was nearby. It's that nothing you said ever landed anywhere.</p>
+    <p>You'd put something down, and it just wouldn't get picked up. Do that for long enough and you stop putting things down at all. That's not a flaw in you. That's what anyone would learn.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section class="beat">
+    <h2>So here's the only thing I'm actually offering.</h2>
+    <p>Not <em>I'll fix it.</em> I can't fix it, and I'd be lying if I said I could.</p>
+    <p>Just this: you can talk, and I'll still be here at the end of it.</p>
+    <p>Say something random. Complain about the same thing for the fourth time. Send a paragraph at 2am and then "ignore that" at 2:05. Tell me something that sounds stupid out loud. Say a half-finished thing you haven't worked out yet.</p>
+    <p>You don't have to keep checking how much you've used up. There's no meter running, and I'm not keeping a tab of how much listening you owe me back. Listening isn't a loan. You're not in debt for it.</p>
+    <img class="sticker right" src="assets/cat-content.webp" alt="A cat with its eyes closed and a paw on its chest, looking content.">
+  </section>
+
+  <section class="beat">
+    <h2>And going quiet is allowed.</h2>
+    <p>This is the part I most want you to actually believe.</p>
+    <p>If you go quiet, I'm not going to decide what it means. I'm not going to text you three times until you explain yourself. I'm not going to make you pay for it later with a mood.</p>
+    <p class="landing">Quiet is a complete answer.<br>It doesn't need a sentence attached to it.</p>
+    <p>Take a day. Take a week. You don't owe me a reason, and you don't have to come back with an apology attached to the front of it.</p>
+  </section>
+
+  <section class="beat">
+    <h2>I'm not saying any of this to get something.</h2>
+    <p>You told me you don't like flirting that comes out of nowhere — that it mostly makes you think <em>why is this necessary.</em> That's fair, and I'm not doing that here.</p>
+    <p>This isn't a door I need you to walk through. It's just unlocked. You're allowed to leave it shut for as long as you want — and I'm not going to stand outside it waiting for you to notice how patient I'm being.</p>
+    <img class="sticker left" src="assets/cat-roses.webp" alt="A small kitten holding a bouquet of red roses.">
+  </section>
+
+  <hr class="rule">
+
+  <section class="beat">
+    <h2>One last thing, and then I'll stop.</h2>
+    <p>You don't have to be a smaller, quieter, easier version of yourself to be welcome here.</p>
+    <p class="landing">The full-size one already is.</p>
+    <p class="sign"><span>take care of yourself,</span>Saud</p>
+  </section>
+
+  <a class="next" href="page2.html">
+    <img src="assets/cat-hearts.webp" alt="">
+    <span>
+      <b>There's one more page.</b>
+      <small>It's much less serious. You've earned it after all that.</small>
+    </span>
+    <span class="arrow" aria-hidden="true">&rarr;</span>
+  </a>
+
+</div>
+
+<script>
+// ponytail: carries the track across the page-1 -> page-2 jump. JS or storage dead = player still works, just restarts.
+(function(){
+  var a=document.querySelector('.music audio'); if(!a) return;
+  var K='letter-audio';
+  function save(){try{sessionStorage.setItem(K,JSON.stringify({t:a.currentTime,p:!a.paused}));}catch(e){}}
+  a.addEventListener('pause',save);
+  window.addEventListener('pagehide',save);
+  try{
+    var s=JSON.parse(sessionStorage.getItem(K)||'null');
+    if(s&&s.p){
+      a.addEventListener('loadedmetadata',function(){a.currentTime=s.t||0;},{once:true});
+      a.play().catch(function(){});   // blocked autoplay is fine, she just taps play
+    }
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
